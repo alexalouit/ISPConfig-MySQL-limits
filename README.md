@@ -4,13 +4,13 @@ ISPConfig MySQL limits
 
 # INSTALLATION (as root)
 
-git clone https://github.com/alexalouit/mysql-limit.git
+git clone https://github.com/alexalouit/ISPConfig-MySQL-limits.git
 
-cd mysql-limits
+cd ISPConfig-MySQL-limits
 
 php -q install.php
 
-After install, a new tab (options) will be available in editing a mysql user with an admin account
+After install, a new tab (options) will be available in editing mysql user with an admin account
 
 
 ## COMPATIBILITY
@@ -26,6 +26,8 @@ For multiple reasons, it works on RW users only
 
 
 ## TODO
+
+For the moment, this will work only if the account is default user of database
 
 Works with aps ?
 
