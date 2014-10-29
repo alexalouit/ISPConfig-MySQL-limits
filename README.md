@@ -40,12 +40,20 @@ Create template
 make backup for each files
 
 copy new file:
-/usr/local/ispconfig/interface/web/sites/templates/database_user_edit.htm
+/usr/local/ispconfig/interface/web/sites/templates/database_user_edit_advanced.htm
 
 copy modified files:
 /usr/local/ispconfig/interface/web/sites/form/database_user.tform.php
 /usr/local/ispconfig/interface/web/sites/lib/lang/*_database_user.lng
 /usr/local/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php
+/usr/local/ispconfig/interface/web/client/lib/lang/*_client_template.lng
+/usr/local/ispconfig/interface/web/client/lib/lang/*_client.lng
+/usr/local/ispconfig/interface/web/client/lib/lang/*_reseller.lng
+/usr/local/ispconfig/interface/web/client/templates/client_template_edit_limits.htm
+/usr/local/ispconfig/interface/web/client/templates/reseller_edit_limits.htm
+/usr/local/ispconfig/interface/web/client/form/reseller.tform.php
+/usr/local/ispconfig/interface/web/client/form/client.tform.php
+/usr/local/ispconfig/interface/web/client/form/client_template.tform.php
 
 sql queries:
 ALTER TABLE `web_database_user` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';

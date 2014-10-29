@@ -45,6 +45,38 @@ $listing = array(
 "source" => "./interface/web/sites/lib/lang/*_database_user.lng", 
 "destination" => "/usr/local/ispconfig/interface/web/sites/lib/lang/", 
 "owners" => "ispconfig:ispconfig", "permissions" => "770"),
+4 => array(
+"source" => "./interface/web/client/lib/lang/*_client_template.lng", 
+"destination" => "/usr/local/ispconfig/interface/web/client/lib/lang/", 
+"owners" => "ispconfig:ispconfig", "permissions" => "770"),
+5 => array(
+"source" => "./interface/web/client/lib/lang/*_client.lng", 
+"destination" => "/usr/local/ispconfig/interface/web/client/lib/lang/", 
+"owners" => "ispconfig:ispconfig", "permissions" => "770"),
+6 => array(
+"source" => "./interface/web/client/lib/lang/*_reseller.lng", 
+"destination" => "/usr/local/ispconfig/interface/web/client/lib/lang/", 
+"owners" => "ispconfig:ispconfig", "permissions" => "770"),
+7 => array(
+"source" => "./interface/web/client/templates/client_template_edit_limits.htm", 
+"destination" => "/usr/local/ispconfig/interface/web/client/templates/client_template_edit_limits.htm", 
+"owners" => "ispconfig:ispconfig", "permissions" => "750"),
+8 => array(
+"source" => "./interface/web/client/templates/reseller_edit_limits.htm", 
+"destination" => "/usr/local/ispconfig/interface/web/client/templates/reseller_edit_limits.htm", 
+"owners" => "ispconfig:ispconfig", "permissions" => "750"),
+9 => array(
+"source" => "./interface/web/client/form/reseller.tform.php", 
+"destination" => "/usr/local/ispconfig/interface/web/client/form/reseller.tform.php", 
+"owners" => "ispconfig:ispconfig", "permissions" => "750"),
+10 => array(
+"source" => "./interface/web/client/form/client.tform.php", 
+"destination" => "/usr/local/ispconfig/interface/web/client/form/client.tform.php", 
+"owners" => "ispconfig:ispconfig", "permissions" => "770"),
+11 => array(
+"source" => "./interface/web/client/form/client_template.tform.php", 
+"destination" => "/usr/local/ispconfig/interface/web/client/form/client_template.tform.php", 
+"owners" => "ispconfig:ispconfig", "permissions" => "750"),
 );
 
 if(!file_exists("/usr/local/ispconfig/server/lib/config.inc.php") OR !file_exists("/usr/local/ispconfig/server/lib/mysql_clientdb.conf")) {
@@ -77,7 +109,7 @@ foreach($listing as $key => $value) {
 	$filelist = $filelist . " " . $value["destination"];
 }
 
-exec ("/bin/tar czvf " . $backup_dir  . $backup_file . " " . $filelist);
+exec("/bin/tar -czf " . $backup_dir  . $backup_file . " " . $filelist);
 
 if(!file_exists($backup_dir . $backup_file )) {
 	echo "There was a problem with the backup file.\n";
@@ -95,7 +127,7 @@ foreach($listing as $key => $value) {
 	exec("chmod -R " . $value["permissions"] . " " . $value["destination"]);
 }
 
-if (!$buffer = mysql_connect($clientdb_host, $clientdb_user, $clientdb_password)) {
+if(!$buffer = mysql_connect($clientdb_host, $clientdb_user, $clientdb_password)) {
 	echo "There was a problem with the MySQL connection.\n";
 	exit;
 }
