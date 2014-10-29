@@ -77,6 +77,10 @@ $listing = array(
 "source" => "./interface/web/client/form/client_template.tform.php", 
 "destination" => "/usr/local/ispconfig/interface/web/client/form/client_template.tform.php", 
 "owners" => "ispconfig:ispconfig", "permissions" => "750"),
+12 => array(
+"source" => "./interface/web/client/templates/client_edit_limits.htm", 
+"destination" => "/usr/local/ispconfig/interface/web/client/templates/client_edit_limits.htm", 
+"owners" => "ispconfig:ispconfig", "permissions" => "750"),
 );
 
 if(!file_exists("/usr/local/ispconfig/server/lib/config.inc.php") OR !file_exists("/usr/local/ispconfig/server/lib/mysql_clientdb.conf")) {

@@ -52,6 +52,7 @@ copy modified files:
 /usr/local/ispconfig/interface/web/client/form/reseller.tform.php
 /usr/local/ispconfig/interface/web/client/form/client.tform.php
 /usr/local/ispconfig/interface/web/client/form/client_template.tform.php
+/usr/local/ispconfig/interface/web/client/templates/client_edit_limits.htm
 
 sql queries:
 ALTER TABLE `web_database_user` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';
