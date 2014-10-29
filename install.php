@@ -27,7 +27,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 $backup_dir = "/var/backup/";
-$backup_file = date("Ymdhi")."mysql-limits";
+$backup_file = date("Ymdhis")."-ISPConfig-MySQL-limits.tar.gz";
 $listing = array(
 0 => array(
 "source" => "./interface/web/sites/templates/database_user_edit_advanced.htm", 
@@ -51,6 +51,7 @@ if(!file_exists("/usr/local/ispconfig/server/lib/config.inc.php") OR !file_exist
 	echo "Unable to load the ISPConfig defaut configuration files.\n";
 	exit;
 }
+
 require_once "/usr/local/ispconfig/server/lib/config.inc.php";
 require_once "/usr/local/ispconfig/server/lib/mysql_clientdb.conf";
 
@@ -76,16 +77,16 @@ foreach($listing as $key => $value) {
 	$filelist = $filelist . " " . $value["destination"];
 }
 
-exec ("/bin/tar czvf " . $backup_dir . "-" . $backup_file . ".tar.gz " . $filelist);
+exec ("/bin/tar czvf " . $backup_dir  . $backup_file . " " . $filelist);
 
-if(!file_exists($backup_dir . "-" . $backup_file )) {
-//	echo "There is a problem with the backup.\n";
-//	exit;
+if(!file_exists($backup_dir . $backup_file )) {
+	echo "There was a problem with the backup file.\n";
+	exit;
 }
+
 echo "Backup finished\n";
 
 echo "Start copying file..\n";
-
 
 foreach($listing as $key => $value) {
 	echo $value["source"] . " -> " . $value["destination"] . "\n";
@@ -95,7 +96,7 @@ foreach($listing as $key => $value) {
 }
 
 if (!$buffer = mysql_connect($clientdb_host, $clientdb_user, $clientdb_password)) {
-	echo "There is a problem with the MySQL connection.\n";
+	echo "There was a problem with the MySQL connection.\n";
 	exit;
 }
 
