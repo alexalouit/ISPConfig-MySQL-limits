@@ -136,10 +136,19 @@ if(!$buffer = mysql_connect($clientdb_host, $clientdb_user, $clientdb_password))
 	exit;
 }
 
+echo "Start MySQL update..\n";
 mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 
 echo "Done my job. Enjoy!\n";
 exit;

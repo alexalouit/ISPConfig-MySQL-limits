@@ -59,4 +59,14 @@ ALTER TABLE `web_database_user` ADD `max_user_connections` bigint(20) NOT NULL D
 ALTER TABLE `web_database_user` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';
 ALTER TABLE `web_database_user` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';
 ALTER TABLE `web_database_user` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';
+
+ALTER TABLE `client` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';
+ALTER TABLE `client` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';
+ALTER TABLE `client` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';
+ALTER TABLE `client` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';
+
+ALTER TABLE `client_template` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';
+ALTER TABLE `client_template` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';
+ALTER TABLE `client_template` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';
+ALTER TABLE `client_template` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';
 ```
