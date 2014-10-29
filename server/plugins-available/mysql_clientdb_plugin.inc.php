@@ -83,13 +83,15 @@ class mysql_clientdb_plugin {
 		if(!is_array($host_list)) $host_list = explode(',', $host_list);
 
 		$success = true;
-		if(!preg_match('/\*[A-F0-9]{40}$/', $database_password)) {
-				$result = $link->query("SELECT PASSWORD('" . $link->escape_string($database_password) . "') as `crypted`");
-				if($result) {
-						$row = $result->fetch_assoc();
-						$database_password = $row['crypted'];
-						$result->free();
-				}
+		if($action != 'RES') {
+			if(!preg_match('/\*[A-F0-9]{40}$/', $database_password)) {
+					$result = $link->query("SELECT PASSWORD('" . $link->escape_string($database_password) . "') as `crypted`");
+					if($result) {
+							$row = $result->fetch_assoc();
+							$database_password = $row['crypted'];
+							$result->free();
+					}
+			}
 		}
 		// loop through hostlist
 		foreach($host_list as $db_host) {
@@ -124,6 +126,13 @@ class mysql_clientdb_plugin {
 				if(!$link->query("RENAME USER '".$link->escape_string($database_user)."'@'$db_host' TO '".$link->escape_string($database_rename_user)."'@'$db_host'")) $success = false;
 			} elseif($action == 'PASSWORD') {
 				if(!$link->query("SET PASSWORD FOR '".$link->escape_string($database_user)."'@'$db_host' = '".$link->escape_string($database_password)."';")) $success = false;
+			} elseif($action == 'RES') {
+				if($database_password['max_user_connections'] == "-1" OR !isset($database_password['max_user_connections']) OR empty($database_password['max_user_connections'])) { $max_user_connections = 0; } else { $max_user_connections = $database_password['max_user_connections']; }
+				if($database_password['max_queries_per_hour'] == "-1" OR !isset($database_password['max_queries_per_hour']) OR empty($database_password['max_queries_per_hour'])) { $max_queries_per_hour = 0; } else { $max_queries_per_hour = $database_password['max_queries_per_hour']; }
+				if($database_password['max_updates_per_hour'] == "-1" OR !isset($database_password['max_updates_per_hour']) OR empty($database_password['max_updates_per_hour'])) { $max_updates_per_hour = 0; } else { $max_updates_per_hour = $database_password['max_updates_per_hour']; }
+				if($database_password['max_connections_per_hour'] == "-1" OR !isset($database_password['max_connections_per_hour']) OR empty($database_password['max_connections_per_hour'])) { $max_connections_per_hour = 0; } else { $max_connections_per_hour = $database_password['max_connections_per_hour']; }
+				if(!$link->query("GRANT USAGE ON ".$link->escape_string($database_name).".* TO '".$link->escape_string($database_user)."'@'$db_host' WITH MAX_USER_CONNECTIONS ".$link->escape_string($max_user_connections)." MAX_QUERIES_PER_HOUR ".$link->escape_string($max_queries_per_hour)." MAX_UPDATES_PER_HOUR ".$link->escape_string($max_updates_per_hour)." MAX_CONNECTIONS_PER_HOUR ".$link->escape_string($max_connections_per_hour).";")) $success = false;
+				$app->log("GRANT USAGE ON ".$link->escape_string($database_name).".* TO '".$link->escape_string($database_user)."'@'$db_host' WITH MAX_USER_CONNECTIONS ".$max_user_connections." MAX_QUERIES_PER_HOUR ".$max_queries_per_hour." MAX_UPDATES_PER_HOUR ".$max_updates_per_hour." MAX_CONNECTIONS_PER_HOUR ".$max_connections_per_hour."; success? " . ($success ? 'yes' : 'no'), LOGLEVEL_DEBUG);
 			}
 		}
 
@@ -205,7 +214,7 @@ class mysql_clientdb_plugin {
 			if($data['new']['active'] == 'y') {
 
 				// get the users for this database
-				$db_user = $app->db->queryOneRecord("SELECT `database_user`, `database_password` FROM `web_database_user` WHERE `database_user_id` = '" . intval($data['new']['database_user_id']) . "'");
+				$db_user = $app->db->queryOneRecord("SELECT `database_user`, `database_password`, `max_user_connections`, `max_queries_per_hour`, `max_updates_per_hour`, `max_connections_per_hour` FROM `web_database_user` WHERE `database_user_id` = '" . intval($data['new']['database_user_id']) . "'");
 
 				$db_ro_user = $app->db->queryOneRecord("SELECT `database_user`, `database_password` FROM `web_database_user` WHERE `database_user_id` = '" . intval($data['new']['database_ro_user_id']) . "'");
 
@@ -220,10 +229,18 @@ class mysql_clientdb_plugin {
 				if($db_user) {
 					if($db_user['database_user'] == 'root') $app->log('User root not allowed for Client databases', LOGLEVEL_WARNING);
 					else $this->process_host_list('GRANT', $data['new']['database_name'], $db_user['database_user'], $db_user['database_password'], $host_list, $link);
+
 				}
 				if($db_ro_user && $data['new']['database_user_id'] != $data['new']['database_ro_user_id']) {
 					if($db_ro_user['database_user'] == 'root') $app->log('User root not allowed for Client databases', LOGLEVEL_WARNING);
 					else $this->process_host_list('GRANT', $data['new']['database_name'], $db_ro_user['database_user'], $db_ro_user['database_password'], $host_list, $link, '', true);
+				}
+
+				if($db_user && $db_user['database_user'] != 'root') {
+					if($db_user['max_user_connections'] != "-1" OR $db_user['max_queries_per_hour'] != "-1" OR $db_user['max_updates_per_hour'] != "-1" OR $db_user['max_connections_per_hour'] != "-1") {
+						// We use password like a door for data (it's nasty, but works)
+						$this->process_host_list('RES', $data['new']['database_name'], $db_user['database_user'], array("max_user_connections" => $db_user['max_user_connections'], "max_queries_per_hour" => $db_user['max_queries_per_hour'], "max_updates_per_hour" => $db_user['max_updates_per_hour'], "max_connections_per_hour" => $db_user['max_connections_per_hour']), $host_list, $link);
+					}
 				}
 
 			}
@@ -452,7 +469,6 @@ class mysql_clientdb_plugin {
 				}
 			}
 
-
 			$link->query('FLUSH PRIVILEGES;');
 			$link->close();
 		}
@@ -565,28 +581,14 @@ class mysql_clientdb_plugin {
 				$app->log('Changing MySQL user password for: '.$data['new']['database_user'].'@'.$db_host, LOGLEVEL_DEBUG);
 			}
 
-			if($data['new']['max_user_connections'] != $data['old']['max_user_connections']) {
-				if($data['new']['max_user_connections'] == "-1") { $data['new']['max_user_connections'] = 0; }
-				$link->query("GRANT USAGE ON *.* TO '".$link->escape_string($data['new']['database_user'])."'@'$db_host' WITH MAX_USER_CONNECTIONS ".$data['new']['max_user_connections'].";");
-				$app->log('Changing MySQL number of simultaneous connections for: '.$data['new']['database_user'].'@'.$db_host, LOGLEVEL_DEBUG);
-			}
-
-			if($data['new']['max_queries_per_hour'] != $data['old']['max_queries_per_hour']) {
-				if($data['new']['max_queries_per_hour'] == "-1") { $data['new']['max_queries_per_hour'] = 0; }
-				$link->query("GRANT USAGE ON *.* TO '".$link->escape_string($data['new']['database_user'])."'@'$db_host' WITH MAX_QUERIES_PER_HOUR ".$data['new']['max_queries_per_hour'].";");
-				$app->log('Changing MySQL number of max queries per hour for: '.$data['new']['database_user'].'@'.$db_host, LOGLEVEL_DEBUG);
-			}
-
-			if($data['new']['max_updates_per_hour'] != $data['old']['max_updates_per_hour']) {
-				if($data['new']['max_updates_per_hour'] == "-1") { $data['new']['max_updates_per_hour'] = 0; }
-				$link->query("GRANT USAGE ON *.* TO '".$link->escape_string($data['new']['database_user'])."'@'$db_host' WITH MAX_UPDATES_PER_HOUR ".$data['new']['max_updates_per_hour'].";");
-				$app->log('Changing MySQL number of max updates per hour for: '.$data['new']['database_user'].'@'.$db_host, LOGLEVEL_DEBUG);
-			}
-
-			if($data['new']['max_connections_per_hour'] != $data['old']['max_connections_per_hour']) {
-				if($data['new']['max_connections_per_hour'] == "-1") { $data['new']['max_connections_per_hour'] = 0; }
-				$link->query("GRANT USAGE ON *.* TO '".$link->escape_string($data['new']['database_user'])."'@'$db_host' WITH MAX_CONNECTIONS_PER_HOUR ".$data['new']['max_connections_per_hour'].";");
-				$app->log('Changing MySQL number of max connections per hour for: '.$data['new']['database_user'].'@'.$db_host, LOGLEVEL_DEBUG);
+			if($data['new']['max_user_connections'] != $data['old']['max_user_connections'] OR $data['new']['max_queries_per_hour'] != $data['old']['max_queries_per_hour'] OR $data['new']['max_updates_per_hour'] != $data['old']['max_updates_per_hour'] OR $data['new']['max_connections_per_hour'] != $data['old']['max_connections_per_hour']) {
+				if($data['new']['max_user_connections'] == "-1" OR !isset($data['new']['max_user_connections']) OR empty($data['new']['max_user_connections'])) { $data['new']['max_user_connections'] = 0; }
+				if($data['new']['max_queries_per_hour'] == "-1" OR !isset($data['new']['max_queries_per_hour']) OR empty($data['new']['max_queries_per_hour'])) { $data['new']['max_queries_per_hour'] = 0; }
+				if($data['new']['max_updates_per_hour'] == "-1" OR !isset($data['new']['max_updates_per_hour']) OR empty($data['new']['max_updates_per_hour'])) { $data['new']['max_updates_per_hour'] = 0; }
+				if($data['new']['max_connections_per_hour'] == "-1" OR !isset($data['new']['max_connections_per_hour']) OR empty($data['new']['max_connections_per_hour'])) { $data['new']['max_connections_per_hour'] = 0; }
+				
+				$link->query("GRANT USAGE ON *.* TO '".$link->escape_string($data['new']['database_user'])."'@'$db_host' WITH MAX_USER_CONNECTIONS ".$data['new']['max_user_connections']." MAX_QUERIES_PER_HOUR ".$data['new']['max_queries_per_hour']." MAX_UPDATES_PER_HOUR ".$data['new']['max_updates_per_hour']." MAX_CONNECTIONS_PER_HOUR ".$data['new']['max_connections_per_hour'].";");
+				$app->log('Changing MySQL Account Resource Limits for: '.$data['new']['database_user'].'@'.$db_host, LOGLEVEL_DEBUG);
 			}
 		}
 

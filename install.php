@@ -45,7 +45,7 @@ $listing = array(
 "source" => "./interface/web/sites/lib/lang/*_database_user.lng", 
 "destination" => "/usr/local/ispconfig/interface/web/sites/lib/lang/", 
 "owners" => "ispconfig:ispconfig", "permissions" => "770"),
-4 => array(
+/*4 => array(
 "source" => "./interface/web/client/lib/lang/*_client_template.lng", 
 "destination" => "/usr/local/ispconfig/interface/web/client/lib/lang/", 
 "owners" => "ispconfig:ispconfig", "permissions" => "770"),
@@ -81,6 +81,7 @@ $listing = array(
 "source" => "./interface/web/client/templates/client_edit_limits.htm", 
 "destination" => "/usr/local/ispconfig/interface/web/client/templates/client_edit_limits.htm", 
 "owners" => "ispconfig:ispconfig", "permissions" => "750"),
+*/
 );
 
 if(!file_exists("/usr/local/ispconfig/server/lib/config.inc.php") OR !file_exists("/usr/local/ispconfig/server/lib/mysql_clientdb.conf")) {
@@ -146,14 +147,14 @@ mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_u
 mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
-mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+/*mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `client` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
 mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
-mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);
+mysql_db_query($conf['db_database'], "ALTER TABLE `client_template` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';", $buffer);*/
 
 echo "Done my job. Enjoy!\n";
 exit;
