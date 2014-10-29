@@ -158,8 +158,13 @@ $wb['limit_domainmodule_error_notint'] = 'Domainmodule limit must be a number.';
 $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
 $wb['client_limits_txt'] = 'Klientské limity';
 $wb['err_msg_master_tpl_set'] = 'Nelze nastavit vlastní limity, pokud chtete nastavit vlatní limity musí být \\"hlavní šablona\\" nastavena na volbu \\"Custom\\".';
+$wb['max_user_connections_txt'] = "Simultaneous connections";
 $wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
+$wb['max_queries_per_hour_txt'] = "Queries per hour";
 $wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
+$wb['max_updates_per_hour_txt'] = "Updates per hour";
 $wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
-$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';?>
+$wb['max_connections_per_hour_txt'] = "Connections per hour";
+$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+?>
 

@@ -153,9 +153,13 @@ $wb['added_by_txt'] = 'Kdo vytvořil účet';
 $wb['added_date_txt'] = 'Datum vytvoření účtu';
 $wb['parent_client_id_txt'] = 'Přiřazení klienta k distributorovi (prodejci)';
 $wb['none_txt'] = 'Žádný';
+$wb['max_user_connections_txt'] = "Simultaneous connections";
 $wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
+$wb['max_queries_per_hour_txt'] = "Queries per hour";
 $wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
+$wb['max_updates_per_hour_txt'] = "Updates per hour";
 $wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
+$wb['max_connections_per_hour_txt'] = "Connections per hour";
 $wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
 ?>
 

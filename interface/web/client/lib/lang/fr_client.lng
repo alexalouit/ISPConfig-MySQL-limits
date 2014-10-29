@@ -153,8 +153,12 @@ $wb['added_by_txt'] = 'Added by';
 $wb['added_date_txt'] = 'Added date';
 $wb['parent_client_id_txt'] = 'Client of reseller';
 $wb['none_txt'] = 'none';
+$wb['max_user_connections_txt'] = "Connexions simultanées";
 $wb["max_user_connections_error_empty"] = 'Connexions simultanées est vide.';
+$wb['max_queries_per_hour_txt'] = "Requetes par heure";
 $wb["max_queries_per_hour_error_empty"] = 'Requetes par heure est vide.';
+$wb['max_updates_per_hour_txt'] = "Mise a jours par heure";
 $wb["max_updates_per_hour_error_empty"] = 'Mise a jours par heure est vide.';
+$wb['max_connections_per_hour_txt'] = "Connexions par heure";
 $wb["max_connections_per_hour_error_empty"] = 'Connexions par heure est vide.';
 ?>
