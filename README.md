@@ -10,7 +10,9 @@ cd ISPConfig-MySQL-limits
 php -q install.php
 ```
 
-After install, a new tab (options) will be available in editing mysql user with an admin account
+After install, a new tab (options) will be available in editing mysql user with an admin account, 
+
+and database section has new options (available in templates/resellers/clients limits tab).
 
 
 ## COMPATIBILITY
@@ -23,9 +25,6 @@ ISPConfig 3.0.5.4p4 or newer
 Normally it should work in a multiple server environment (I haven't tested yet)
 
 For multiple reasons, it works on RW users only
-
-
-## TODO
 
 For the moment, this will work only if the account is default user of database
 

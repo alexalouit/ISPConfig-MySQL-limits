@@ -106,6 +106,11 @@ if(!file_exists($backup_dir)) {
 	exit;
 }
 
+if(getcwd() != realpath(dirname(__FILE__))) {
+	echo "Run me in current installer directory!\n";
+	exit;
+}
+
 echo "Create backup on " . $backup_dir . " directory\n";
 $filelist = "";
 
