@@ -1,0 +1,1945 @@
+diff -r -u -N /root/ispconfig/interface/web/client/form/client.tform.php ./usr/local/ispconfig/interface/web/client/form/client.tform.php
+--- /root/ispconfig/interface/web/client/form/client.tform.php	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/form/client.tform.php	2014-10-29 11:37:02.000000000 +0100
+@@ -1025,6 +1025,50 @@
+ 			'rows'  => '',
+ 			'cols'  => ''
+ 		),
++		'max_user_connections' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_user_connections_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_queries_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_queries_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_updates_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_updates_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_connections_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_connections_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
+ 		'limit_cron' => array (
+ 			'datatype'  => 'INTEGER',
+ 			'formtype'  => 'TEXT',
+diff -r -u -N /root/ispconfig/interface/web/client/form/client_template.tform.php ./usr/local/ispconfig/interface/web/client/form/client_template.tform.php
+--- /root/ispconfig/interface/web/client/form/client_template.tform.php	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/form/client_template.tform.php	2014-10-29 11:37:02.000000000 +0100
+@@ -557,6 +557,50 @@
+ 			'rows'  => '',
+ 			'cols'  => ''
+ 		),
++		'max_user_connections' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_user_connections_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_queries_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_queries_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_updates_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_updates_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_connections_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_connections_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
+ 		'limit_cron' => array (
+ 			'datatype'  => 'INTEGER',
+ 			'formtype'  => 'TEXT',
+diff -r -u -N /root/ispconfig/interface/web/client/form/reseller.tform.php ./usr/local/ispconfig/interface/web/client/form/reseller.tform.php
+--- /root/ispconfig/interface/web/client/form/reseller.tform.php	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/form/reseller.tform.php	2014-10-29 11:37:02.000000000 +0100
+@@ -1023,6 +1023,50 @@
+ 			'rows'  => '',
+ 			'cols'  => ''
+ 		),
++		'max_user_connections' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_user_connections_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_queries_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_queries_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_updates_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_updates_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_connections_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_connections_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
+ 		'limit_cron' => array (
+ 			'datatype'  => 'INTEGER',
+ 			'formtype'  => 'TEXT',
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ar_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ar_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ar_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ar_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ar_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ar_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ar_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ar_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ar_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ar_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ar_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ar_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/bg_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/bg_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/bg_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/bg_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/bg_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/bg_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/bg_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/bg_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/bg_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/bg_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/bg_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/bg_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/br_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/br_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/br_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/br_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/br_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/br_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/br_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/br_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/br_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/br_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/br_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/br_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/cz_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/cz_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/cz_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/cz_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,5 +153,13 @@
+ $wb['added_date_txt'] = 'Datum vytvoření účtu';
+ $wb['parent_client_id_txt'] = 'Přiřazení klienta k distributorovi (prodejci)';
+ $wb['none_txt'] = 'Žádný';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+ 
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/cz_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/cz_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/cz_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/cz_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,5 +89,13 @@
+ $wb['limit_aps_error_notint'] = 'Limit pro APS instalace musí být číslo.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Klientské limity';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+ 
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/cz_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/cz_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/cz_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/cz_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,5 +158,13 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Klientské limity';
+ $wb['err_msg_master_tpl_set'] = 'Nelze nastavit vlastní limity, pokud chtete nastavit vlatní limity musí být \\"hlavní šablona\\" nastavena na volbu \\"Custom\\".';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+ 
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/de_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/de_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/de_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/de_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/de_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/de_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/de_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/de_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'Das APS Instanzen Limit muss eine Zahl sein.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/de_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/de_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/de_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/de_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -157,5 +157,13 @@
+ $wb['limit_domainmodule_error_notint'] = 'Domainmodule limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+-$wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \"custom\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/el_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/el_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/el_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/el_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/el_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/el_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/el_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/el_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/el_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/el_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/el_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/el_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/en_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/en_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/en_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/en_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -156,4 +156,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/en_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/en_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/en_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/en_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,5 +89,13 @@
+ $wb['limit_aps_txt'] = 'Max. number of APS instances';
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+-$wb['client_limits_txt'] = 'Client Limits'
++$wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+\ No newline at end of file
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/en_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/en_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/en_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/en_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -160,4 +160,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than "custom" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/es_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/es_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/es_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/es_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/es_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/es_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/es_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/es_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/es_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/es_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/es_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/es_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/fi_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/fi_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/fi_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/fi_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/fi_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/fi_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/fi_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/fi_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/fi_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/fi_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/fi_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/fi_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/fr_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/fr_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/fr_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/fr_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Connexions simultanées";
++$wb["max_user_connections_error_empty"] = 'Connexions simultanées est vide.';
++$wb['max_queries_per_hour_txt'] = "Requetes par heure";
++$wb["max_queries_per_hour_error_empty"] = 'Requetes par heure est vide.';
++$wb['max_updates_per_hour_txt'] = "Mise a jours par heure";
++$wb["max_updates_per_hour_error_empty"] = 'Mise a jours par heure est vide.';
++$wb['max_connections_per_hour_txt'] = "Connexions par heure";
++$wb["max_connections_per_hour_error_empty"] = 'Connexions par heure est vide.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/fr_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/fr_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/fr_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/fr_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,11 @@
+ $wb['limit_aps_error_notint'] = 'La limite d\'instances APS doit être un nombre.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_error_empty"] = 'Connexions simultanées est vide.';
++$wb['max_queries_per_hour_txt'] = "Requetes par heure";
++$wb["max_queries_per_hour_error_empty"] = 'Requetes par heure est vide.';
++$wb['max_updates_per_hour_txt'] = "Mise a jours par heure";
++$wb["max_updates_per_hour_error_empty"] = 'Mise a jours par heure est vide.';
++$wb['max_connections_per_hour_txt'] = "Connexions par heure";
++$wb["max_connections_per_hour_error_empty"] = 'Connexions par heure est vide.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/fr_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/fr_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/fr_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/fr_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Connexions simultanées";
++$wb["max_user_connections_error_empty"] = 'Connexions simultanées est vide.';
++$wb['max_queries_per_hour_txt'] = "Requetes par heure";
++$wb["max_queries_per_hour_error_empty"] = 'Requetes par heure est vide.';
++$wb['max_updates_per_hour_txt'] = "Mise a jours par heure";
++$wb["max_updates_per_hour_error_empty"] = 'Mise a jours par heure est vide.';
++$wb['max_connections_per_hour_txt'] = "Connexions par heure";
++$wb["max_connections_per_hour_error_empty"] = 'Connexions par heure est vide.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/hr_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/hr_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/hr_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/hr_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,6 +153,14 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+ 
+ 
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/hr_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/hr_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/hr_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/hr_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,6 +89,14 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+ 
+ 
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/hr_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/hr_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/hr_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/hr_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,6 +158,14 @@
+ $wb['limit_domainmodule_txt'] = 'Domain module Limit';
+ $wb['client_limits_txt'] = 'Limiti klijenata';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+ 
+ 
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/hu_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/hu_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/hu_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/hu_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/hu_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/hu_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/hu_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/hu_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/hu_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/hu_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/hu_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/hu_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/id_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/id_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/id_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/id_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/id_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/id_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/id_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/id_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/id_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/id_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/id_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/id_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/it_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/it_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/it_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/it_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/it_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/it_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/it_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/it_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/it_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/it_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/it_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/it_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ja_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ja_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ja_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ja_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ja_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ja_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ja_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ja_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ja_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ja_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ja_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ja_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/nl_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/nl_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/nl_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/nl_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/nl_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/nl_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/nl_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/nl_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/nl_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/nl_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/nl_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/nl_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/pl_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/pl_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/pl_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/pl_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/pl_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/pl_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/pl_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/pl_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'Limit instancji APS musi być liczbą';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/pl_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/pl_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/pl_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/pl_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/pt_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/pt_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/pt_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/pt_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/pt_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/pt_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/pt_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/pt_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/pt_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/pt_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/pt_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/pt_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ro_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ro_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ro_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ro_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ro_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ro_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ro_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ro_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ro_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ro_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ro_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ro_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ru_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ru_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ru_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ru_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ru_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ru_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ru_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ru_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/ru_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/ru_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/ru_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/ru_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/se_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/se_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/se_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/se_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Tillagd datum';
+ $wb['parent_client_id_txt'] = 'Kund till återförsäljare';
+ $wb['none_txt'] = 'ingen';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/se_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/se_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/se_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/se_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/se_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/se_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/se_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/se_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/sk_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/sk_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/sk_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/sk_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/sk_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/sk_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/sk_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/sk_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/sk_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/sk_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/sk_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/sk_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/tr_client.lng ./usr/local/ispconfig/interface/web/client/lib/lang/tr_client.lng
+--- /root/ispconfig/interface/web/client/lib/lang/tr_client.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/tr_client.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -153,4 +153,12 @@
+ $wb['added_date_txt'] = 'Added date';
+ $wb['parent_client_id_txt'] = 'Client of reseller';
+ $wb['none_txt'] = 'none';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/tr_client_template.lng ./usr/local/ispconfig/interface/web/client/lib/lang/tr_client_template.lng
+--- /root/ispconfig/interface/web/client/lib/lang/tr_client_template.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/tr_client_template.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -89,4 +89,12 @@
+ $wb['limit_aps_error_notint'] = 'The APS instances limit must be a number.';
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
++$wb["max_user_connections_txt"] = 'Simultaneous connections';
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb["max_queries_per_hour_txt"] = 'Queries per hour';
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb["max_updates_per_hour_txt"] = 'Updates per hour';
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb["max_connections_per_hour_txt"] = 'Connections per hour';
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';;
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/lib/lang/tr_reseller.lng ./usr/local/ispconfig/interface/web/client/lib/lang/tr_reseller.lng
+--- /root/ispconfig/interface/web/client/lib/lang/tr_reseller.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/lib/lang/tr_reseller.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -158,4 +158,12 @@
+ $wb['limit_domainmodule_txt'] = 'Domainmodule Limit';
+ $wb['client_limits_txt'] = 'Client Limits';
+ $wb['err_msg_master_tpl_set'] = 'All custom limit settings are ignored if any master template other than \\"custom\\" is selected.';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/client/templates/client_edit_limits.htm ./usr/local/ispconfig/interface/web/client/templates/client_edit_limits.htm
+--- /root/ispconfig/interface/web/client/templates/client_edit_limits.htm	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/templates/client_edit_limits.htm	2014-10-29 11:37:02.000000000 +0100
+@@ -229,6 +229,22 @@
+                     <label for="limit_database">{tmpl_var name='limit_database_txt'}</label>
+                     <input name="limit_database" id="limit_database" value="{tmpl_var name='limit_database'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
+                 </div>
++                <div class="ctrlHolder">
++                    <label for="max_user_connections">{tmpl_var name='max_user_connections_txt'}</label>
++                    <input name="max_user_connections" id="max_user_connections" value="{tmpl_var name='max_user_connections'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_queries_per_hour">{tmpl_var name='max_queries_per_hour_txt'}</label>
++                    <input name="max_queries_per_hour" id="max_queries_per_hour" value="{tmpl_var name='max_queries_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_updates_per_hour">{tmpl_var name='max_updates_per_hour_txt'}</label>
++                    <input name="max_updates_per_hour" id="max_updates_per_hour" value="{tmpl_var name='max_updates_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_connections_per_hour">{tmpl_var name='max_connections_per_hour_txt'}</label>
++                    <input name="max_connections_per_hour" id="max_connections_per_hour" value="{tmpl_var name='max_connections_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
+             </div>
+             <div class="subsectiontoggle"><span></span>{tmpl_var name='cron_job_limits_txt'}<em></em></div>
+             <div style="display:none;">
+diff -r -u -N /root/ispconfig/interface/web/client/templates/client_template_edit_limits.htm ./usr/local/ispconfig/interface/web/client/templates/client_template_edit_limits.htm
+--- /root/ispconfig/interface/web/client/templates/client_template_edit_limits.htm	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/templates/client_template_edit_limits.htm	2014-10-29 11:37:02.000000000 +0100
+@@ -171,6 +171,22 @@
+                     <label for="limit_database">{tmpl_var name='limit_database_txt'}</label>
+                     <input name="limit_database" id="limit_database" value="{tmpl_var name='limit_database'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
+                 </div>
++                <div class="ctrlHolder">
++                    <label for="max_user_connections">{tmpl_var name='max_user_connections_txt'}</label>
++                    <input name="max_user_connections" id="max_user_connections" value="{tmpl_var name='max_user_connections'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_queries_per_hour">{tmpl_var name='max_queries_per_hour_txt'}</label>
++                    <input name="max_queries_per_hour" id="max_queries_per_hour" value="{tmpl_var name='max_queries_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_updates_per_hour">{tmpl_var name='max_updates_per_hour_txt'}</label>
++                    <input name="max_updates_per_hour" id="max_updates_per_hour" value="{tmpl_var name='max_updates_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_connections_per_hour">{tmpl_var name='max_connections_per_hour_txt'}</label>
++                    <input name="max_connections_per_hour" id="max_connections_per_hour" value="{tmpl_var name='max_connections_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
+             </div>
+             <div class="subsectiontoggle"><span></span>{tmpl_var name='cron_job_limits_txt'}<em></em></div>
+             <div style="display:none;">
+diff -r -u -N /root/ispconfig/interface/web/client/templates/reseller_edit_limits.htm ./usr/local/ispconfig/interface/web/client/templates/reseller_edit_limits.htm
+--- /root/ispconfig/interface/web/client/templates/reseller_edit_limits.htm	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/client/templates/reseller_edit_limits.htm	2014-10-29 11:37:02.000000000 +0100
+@@ -237,6 +237,22 @@
+                     <label for="limit_database">{tmpl_var name='limit_database_txt'}</label>
+                     <input name="limit_database" id="limit_database" value="{tmpl_var name='limit_database'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
+                 </div>
++                <div class="ctrlHolder">
++                    <label for="max_user_connections">{tmpl_var name='max_user_connections_txt'}</label>
++                    <input name="max_user_connections" id="max_user_connections" value="{tmpl_var name='max_user_connections'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_queries_per_hour">{tmpl_var name='max_queries_per_hour_txt'}</label>
++                    <input name="max_queries_per_hour" id="max_queries_per_hour" value="{tmpl_var name='max_queries_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_updates_per_hour">{tmpl_var name='max_updates_per_hour_txt'}</label>
++                    <input name="max_updates_per_hour" id="max_updates_per_hour" value="{tmpl_var name='max_updates_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
++                <div class="ctrlHolder">
++                    <label for="max_connections_per_hour">{tmpl_var name='max_connections_per_hour_txt'}</label>
++                    <input name="max_connections_per_hour" id="max_connections_per_hour" value="{tmpl_var name='max_connections_per_hour'}" size="10" maxlength="10" type="text" class="textInput formLengthLimit" />
++                </div>
+             </div>
+             <div class="subsectiontoggle"><span></span>{tmpl_var name='cron_job_limits_txt'}<em></em></div>
+             <div style="display:none;">
+diff -r -u -N /root/ispconfig/interface/web/sites/form/database_user.tform.php ./usr/local/ispconfig/interface/web/sites/form/database_user.tform.php
+--- /root/ispconfig/interface/web/sites/form/database_user.tform.php	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/form/database_user.tform.php	2014-10-29 11:37:02.000000000 +0100
+@@ -122,5 +122,67 @@
+ 	)
+ );
+ 
++if($_SESSION["s"]["user"]["typ"] == 'admin') {
++
++	$form["tabs"]['advanced'] = array (
++		'title'  => "Options",
++		'width'  => 100,
++		'template'  => "templates/database_user_edit_advanced.htm",
++		'fields'  => array (
++			//#################################
++			// Begin Datatable fields
++			//#################################
++		'max_user_connections' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_user_connections_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_queries_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_queries_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_updates_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_updates_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++		'max_connections_per_hour' => array (
++			'datatype' => 'INTEGER',
++			'formtype' => 'TEXT',
++			'validators' => array (  0 => array ( 'type' => 'NOTEMPTY',
++				'errmsg'=> 'max_connections_per_hour_error_empty'),
++			),
++			'default' => '-1',
++			'value'  => '',
++			'width'  => '7',
++			'maxlength' => '7'
++		),
++			//#################################
++			// ENDE Datatable fields
++			//#################################
++		)
++	);
++
++}
++
+ 
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/ar_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/ar_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/ar_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/ar_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/bg_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/bg_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/bg_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/bg_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/br_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/br_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/br_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/br_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/cz_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/cz_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/cz_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/cz_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,5 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 výsledků';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Hledat';
+ $wb['globalsearch_suggestions_text_txt'] = 'Návrhy';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+-
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/de_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/de_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/de_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/de_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 Treffer';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Suche';
+ $wb['globalsearch_suggestions_text_txt'] = 'Vorschläge';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/el_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/el_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/el_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/el_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/en_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/en_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/en_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/en_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = "0 results";
+ $wb['globalsearch_searchfield_watermark_txt'] = "Search";
+ $wb['globalsearch_suggestions_text_txt'] = "Suggestions";
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/es_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/es_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/es_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/es_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/fi_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/fi_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/fi_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/fi_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/fr_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/fr_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/fr_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/fr_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Connexions simultanées";
++$wb["max_user_connections_error_empty"] = 'Connexions simultanées est vide.';
++$wb['max_queries_per_hour_txt'] = "Requetes par heure";
++$wb["max_queries_per_hour_error_empty"] = 'Requetes par heure est vide.';
++$wb['max_updates_per_hour_txt'] = "Mise a jours par heure";
++$wb["max_updates_per_hour_error_empty"] = 'Mise a jours par heure est vide.';
++$wb['max_connections_per_hour_txt'] = "Connexions par heure";
++$wb["max_connections_per_hour_error_empty"] = 'Connexions par heure est vide.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/hr_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/hr_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/hr_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/hr_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,6 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 rezultata';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Traži';
+ $wb['globalsearch_suggestions_text_txt'] = 'Sugestija';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+-
+-
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/hu_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/hu_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/hu_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/hu_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/id_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/id_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/id_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/id_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/it_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/it_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/it_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/it_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/ja_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/ja_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/ja_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/ja_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/nl_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/nl_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/nl_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/nl_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/pl_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/pl_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/pl_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/pl_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/pt_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/pt_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/pt_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/pt_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/ro_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/ro_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/ro_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/ro_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/ru_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/ru_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/ru_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/ru_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/se_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/se_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/se_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/se_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 resultat';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Sök';
+ $wb['globalsearch_suggestions_text_txt'] = 'Förslag';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/sk_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/sk_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/sk_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/sk_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/lib/lang/tr_database_user.lng ./usr/local/ispconfig/interface/web/sites/lib/lang/tr_database_user.lng
+--- /root/ispconfig/interface/web/sites/lib/lang/tr_database_user.lng	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/interface/web/sites/lib/lang/tr_database_user.lng	2014-10-29 11:37:02.000000000 +0100
+@@ -20,4 +20,12 @@
+ $wb['globalsearch_noresults_limit_txt'] = '0 results';
+ $wb['globalsearch_searchfield_watermark_txt'] = 'Search';
+ $wb['globalsearch_suggestions_text_txt'] = 'Suggestions';
++$wb['max_user_connections_txt'] = "Simultaneous connections";
++$wb["max_user_connections_error_empty"] = 'Simultaneous connections is empty.';
++$wb['max_queries_per_hour_txt'] = "Queries per hour";
++$wb["max_queries_per_hour_error_empty"] = 'Queries per hour is empty.';
++$wb['max_updates_per_hour_txt'] = "Updates per hour";
++$wb["max_updates_per_hour_error_empty"] = 'Updates per hour is empty.';
++$wb['max_connections_per_hour_txt'] = "Connections per hour";
++$wb["max_connections_per_hour_error_empty"] = 'Connections per hour is empty.';
+ ?>
+diff -r -u -N /root/ispconfig/interface/web/sites/templates/database_user_edit_advanced.htm ./usr/local/ispconfig/interface/web/sites/templates/database_user_edit_advanced.htm
+--- /root/ispconfig/interface/web/sites/templates/database_user_edit_advanced.htm	1970-01-01 01:00:00.000000000 +0100
++++ ./usr/local/ispconfig/interface/web/sites/templates/database_user_edit_advanced.htm	2014-10-29 11:37:02.000000000 +0100
+@@ -0,0 +1,36 @@
++<h2><tmpl_var name="list_head_txt"></h2>
++<p><tmpl_var name="list_desc_txt"></p>
++
++<div class="panel panel_database_user">
++
++    <div class="pnl_formsarea">
++        <fieldset class="inlineLabels">
++            <div class="ctrlHolder">
++                <label for="max_user_connections">{tmpl_var name='max_user_connections_txt'}</label>
++                <input name="max_user_connections" id="max_user_connections" value="{tmpl_var name='max_user_connections'}" size="7" maxlength="7" type="text" class="textInput formLengthLimit" /><p class="label">connections</p>
++            </div>
++            <div class="ctrlHolder">
++                <label for="max_queries_per_hour">{tmpl_var name='max_queries_per_hour_txt'}</label>
++                <input name="max_queries_per_hour" id="max_queries_per_hour" value="{tmpl_var name='max_queries_per_hour'}" size="7" maxlength="7" type="text" class="textInput formLengthLimit" /><p class="label">queries/h</p>
++            </div>
++            <div class="ctrlHolder">
++                <label for="max_updates_per_hour">{tmpl_var name='max_updates_per_hour_txt'}</label>
++                <input name="max_updates_per_hour" id="max_updates_per_hour" value="{tmpl_var name='max_updates_per_hour'}" size="7" maxlength="7" type="text" class="textInput formLengthLimit" /><p class="label">updates/h</p>
++            </div>
++            <div class="ctrlHolder">
++                <label for="max_connections_per_hour">{tmpl_var name='max_connections_per_hour_txt'}</label>
++                <input name="max_connections_per_hour" id="max_connections_per_hour" value="{tmpl_var name='max_connections_per_hour'}" size="7" maxlength="7" type="text" class="textInput formLengthLimit" /><p class="label">connections/h</p>
++            </div>
++
++            <input type="hidden" name="database_user" id="database_user" value="{tmpl_var name='database_user'}">
++            <input type="hidden" name="id" value="{tmpl_var name='id'}">
++        </fieldset>
++
++
++        <div class="buttonHolder buttons">
++            <button class="positive iconstxt icoPositive" type="button" value="{tmpl_var name='btn_save_txt'}" onclick="submitForm('pageForm','sites/database_user_edit.php');"><span>{tmpl_var name='btn_save_txt'}</span></button>
++            <button class="negative iconstxt icoNegative" type="button" value="{tmpl_var name='btn_cancel_txt'}" onclick="loadContent('sites/database_user_list.php');"><span>{tmpl_var name='btn_cancel_txt'}</span></button>
++        </div>
++    </div>
++
++</div>
+\ No newline at end of file
+diff -r -u -N /root/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php ./usr/local/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php
+--- /root/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php	2014-10-18 13:35:50.000000000 +0200
++++ ./usr/local/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php	2014-10-29 11:37:02.000000000 +0100
+@@ -83,13 +83,15 @@
+ 		if(!is_array($host_list)) $host_list = explode(',', $host_list);
+ 
+ 		$success = true;
+-		if(!preg_match('/\*[A-F0-9]{40}$/', $database_password)) {
+-				$result = $link->query("SELECT PASSWORD('" . $link->escape_string($database_password) . "') as `crypted`");
+-				if($result) {
+-						$row = $result->fetch_assoc();
+-						$database_password = $row['crypted'];
+-						$result->free();
+-				}
++		if($action != 'RES') {
++			if(!preg_match('/\*[A-F0-9]{40}$/', $database_password)) {
++					$result = $link->query("SELECT PASSWORD('" . $link->escape_string($database_password) . "') as `crypted`");
++					if($result) {
++							$row = $result->fetch_assoc();
++							$database_password = $row['crypted'];
++							$result->free();
++					}
++			}
+ 		}
+ 		// loop through hostlist
+ 		foreach($host_list as $db_host) {
+@@ -124,6 +126,13 @@
+ 				if(!$link->query("RENAME USER '".$link->escape_string($database_user)."'@'$db_host' TO '".$link->escape_string($database_rename_user)."'@'$db_host'")) $success = false;
+ 			} elseif($action == 'PASSWORD') {
+ 				if(!$link->query("SET PASSWORD FOR '".$link->escape_string($database_user)."'@'$db_host' = '".$link->escape_string($database_password)."';")) $success = false;
++			} elseif($action == 'RES') {
++				if($database_password['max_user_connections'] == "-1" OR !isset($database_password['max_user_connections']) OR empty($database_password['max_user_connections'])) { $max_user_connections = 0; } else { $max_user_connections = $database_password['max_user_connections']; }
++				if($database_password['max_queries_per_hour'] == "-1" OR !isset($database_password['max_queries_per_hour']) OR empty($database_password['max_queries_per_hour'])) { $max_queries_per_hour = 0; } else { $max_queries_per_hour = $database_password['max_queries_per_hour']; }
++				if($database_password['max_updates_per_hour'] == "-1" OR !isset($database_password['max_updates_per_hour']) OR empty($database_password['max_updates_per_hour'])) { $max_updates_per_hour = 0; } else { $max_updates_per_hour = $database_password['max_updates_per_hour']; }
++				if($database_password['max_connections_per_hour'] == "-1" OR !isset($database_password['max_connections_per_hour']) OR empty($database_password['max_connections_per_hour'])) { $max_connections_per_hour = 0; } else { $max_connections_per_hour = $database_password['max_connections_per_hour']; }
++				if(!$link->query("GRANT USAGE ON ".$link->escape_string($database_name).".* TO '".$link->escape_string($database_user)."'@'$db_host' WITH MAX_USER_CONNECTIONS ".$link->escape_string($max_user_connections)." MAX_QUERIES_PER_HOUR ".$link->escape_string($max_queries_per_hour)." MAX_UPDATES_PER_HOUR ".$link->escape_string($max_updates_per_hour)." MAX_CONNECTIONS_PER_HOUR ".$link->escape_string($max_connections_per_hour).";")) $success = false;
++				$app->log("GRANT USAGE ON ".$link->escape_string($database_name).".* TO '".$link->escape_string($database_user)."'@'$db_host' WITH MAX_USER_CONNECTIONS ".$max_user_connections." MAX_QUERIES_PER_HOUR ".$max_queries_per_hour." MAX_UPDATES_PER_HOUR ".$max_updates_per_hour." MAX_CONNECTIONS_PER_HOUR ".$max_connections_per_hour."; success? " . ($success ? 'yes' : 'no'), LOGLEVEL_DEBUG);
+ 			}
+ 		}
+ 
+@@ -205,7 +214,7 @@
+ 			if($data['new']['active'] == 'y') {
+ 
+ 				// get the users for this database
+-				$db_user = $app->db->queryOneRecord("SELECT `database_user`, `database_password` FROM `web_database_user` WHERE `database_user_id` = '" . intval($data['new']['database_user_id']) . "'");
++				$db_user = $app->db->queryOneRecord("SELECT `database_user`, `database_password`, `max_user_connections`, `max_queries_per_hour`, `max_updates_per_hour`, `max_connections_per_hour` FROM `web_database_user` WHERE `database_user_id` = '" . intval($data['new']['database_user_id']) . "'");
+ 
+ 				$db_ro_user = $app->db->queryOneRecord("SELECT `database_user`, `database_password` FROM `web_database_user` WHERE `database_user_id` = '" . intval($data['new']['database_ro_user_id']) . "'");
+ 
+@@ -220,12 +229,20 @@
+ 				if($db_user) {
+ 					if($db_user['database_user'] == 'root') $app->log('User root not allowed for Client databases', LOGLEVEL_WARNING);
+ 					else $this->process_host_list('GRANT', $data['new']['database_name'], $db_user['database_user'], $db_user['database_password'], $host_list, $link);
++
+ 				}
+ 				if($db_ro_user && $data['new']['database_user_id'] != $data['new']['database_ro_user_id']) {
+ 					if($db_ro_user['database_user'] == 'root') $app->log('User root not allowed for Client databases', LOGLEVEL_WARNING);
+ 					else $this->process_host_list('GRANT', $data['new']['database_name'], $db_ro_user['database_user'], $db_ro_user['database_password'], $host_list, $link, '', true);
+ 				}
+ 
++				if($db_user && $db_user['database_user'] != 'root') {
++					if($db_user['max_user_connections'] != "-1" OR $db_user['max_queries_per_hour'] != "-1" OR $db_user['max_updates_per_hour'] != "-1" OR $db_user['max_connections_per_hour'] != "-1") {
++						// We use password like a door for data (it's nasty, but works)
++						$this->process_host_list('RES', $data['new']['database_name'], $db_user['database_user'], array("max_user_connections" => $db_user['max_user_connections'], "max_queries_per_hour" => $db_user['max_queries_per_hour'], "max_updates_per_hour" => $db_user['max_updates_per_hour'], "max_connections_per_hour" => $db_user['max_connections_per_hour']), $host_list, $link);
++					}
++				}
++
+ 			}
+ 
+ 			$link->query('FLUSH PRIVILEGES;');
+@@ -452,7 +469,6 @@
+ 				}
+ 			}
+ 
+-
+ 			$link->query('FLUSH PRIVILEGES;');
+ 			$link->close();
+ 		}
+@@ -532,7 +548,7 @@
+ 		}
+ 
+ 
+-		if($data['old']['database_user'] == $data['new']['database_user'] && ($data['old']['database_password'] == $data['new']['database_password'] || $data['new']['database_password'] == '')) {
++		if($data['old']['database_user'] == $data['new']['database_user'] && ($data['old']['database_password'] == $data['new']['database_password'] && $data['new']['max_user_connections'] == $data['old']['max_user_connections'] && $data['new']['max_queries_per_hour'] == $data['old']['max_queries_per_hour'] && $data['new']['max_updates_per_hour'] == $data['old']['max_updates_per_hour'] && $data['new']['max_connections_per_hour'] == $data['old']['max_connections_per_hour'] || $data['new']['database_password'] == '')) {
+ 			return;
+ 		}
+ 
+@@ -564,6 +580,16 @@
+ 				$link->query("SET PASSWORD FOR '".$link->escape_string($data['new']['database_user'])."'@'$db_host' = '".$link->escape_string($data['new']['database_password'])."';");
+ 				$app->log('Changing MySQL user password for: '.$data['new']['database_user'].'@'.$db_host, LOGLEVEL_DEBUG);
+ 			}
++
++			if($data['new']['max_user_connections'] != $data['old']['max_user_connections'] OR $data['new']['max_queries_per_hour'] != $data['old']['max_queries_per_hour'] OR $data['new']['max_updates_per_hour'] != $data['old']['max_updates_per_hour'] OR $data['new']['max_connections_per_hour'] != $data['old']['max_connections_per_hour']) {
++				if($data['new']['max_user_connections'] == "-1" OR !isset($data['new']['max_user_connections']) OR empty($data['new']['max_user_connections'])) { $data['new']['max_user_connections'] = 0; }
++				if($data['new']['max_queries_per_hour'] == "-1" OR !isset($data['new']['max_queries_per_hour']) OR empty($data['new']['max_queries_per_hour'])) { $data['new']['max_queries_per_hour'] = 0; }
++				if($data['new']['max_updates_per_hour'] == "-1" OR !isset($data['new']['max_updates_per_hour']) OR empty($data['new']['max_updates_per_hour'])) { $data['new']['max_updates_per_hour'] = 0; }
++				if($data['new']['max_connections_per_hour'] == "-1" OR !isset($data['new']['max_connections_per_hour']) OR empty($data['new']['max_connections_per_hour'])) { $data['new']['max_connections_per_hour'] = 0; }
++				
++				$link->query("GRANT USAGE ON *.* TO '".$link->escape_string($data['new']['database_user'])."'@'$db_host' WITH MAX_USER_CONNECTIONS ".$data['new']['max_user_connections']." MAX_QUERIES_PER_HOUR ".$data['new']['max_queries_per_hour']." MAX_UPDATES_PER_HOUR ".$data['new']['max_updates_per_hour']." MAX_CONNECTIONS_PER_HOUR ".$data['new']['max_connections_per_hour'].";");
++				$app->log('Changing MySQL Account Resource Limits for: '.$data['new']['database_user'].'@'.$db_host, LOGLEVEL_DEBUG);
++			}
+ 		}
+ 
+ 		$link->query('FLUSH PRIVILEGES;');
+imac-alex:Downloads alex$ 

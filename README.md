@@ -15,7 +15,7 @@ After install, a new tab (options) will be available in editing mysql user with 
 
 ## COMPATIBILITY
 
-ISPConfig 3.0.5.4p4 or newer
+ISPConfig (select version in branche)
 
 
 ## NOTES
@@ -27,22 +27,18 @@ For multiple reasons, it works on RW users only
 
 ## MANUAL INSTALLATION
 
+- patch ISPConfig
 ```
-make backup for each files:
+cp ispconfig.patch /usr/local/ispconfig/ispconfig.patch
+cd /usr/local/ispconfig
+patch -p3 < ./ispconfig.patch
+rm ./ispconfig.patch
+```
 
-copy new file:
-/usr/local/ispconfig/interface/web/sites/templates/database_user_edit_advanced.htm
-
-copy modified files:
-/usr/local/ispconfig/interface/web/sites/form/database_user.tform.php
-/usr/local/ispconfig/interface/web/sites/lib/lang/*_database_user.lng
-/usr/local/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php
-
-sql queries:
+- sql queries
+```
 ALTER TABLE `web_database_user` ADD `max_user_connections` bigint(20) NOT NULL DEFAULT '-1';
 ALTER TABLE `web_database_user` ADD `max_queries_per_hour` bigint(20) NOT NULL DEFAULT '-1';
 ALTER TABLE `web_database_user` ADD `max_updates_per_hour` bigint(20) NOT NULL DEFAULT '-1';
 ALTER TABLE `web_database_user` ADD `max_connections_per_hour` bigint(20) NOT NULL DEFAULT '-1';
 ```
-
-other files are for template support (not now, due to ISPConfig template conception).
