@@ -1942,4 +1942,3 @@ diff -r -u -N /root/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc
  		}
  
  		$link->query('FLUSH PRIVILEGES;');
-imac-alex:Downloads alex$ 
