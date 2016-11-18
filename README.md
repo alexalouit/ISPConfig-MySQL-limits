@@ -15,12 +15,10 @@ After install, a new tab (options) will be available in editing mysql user with 
 
 ## COMPATIBILITY
 
-ISPConfig (select version in branche)
+ISPConfig (select version in branch)
 
 
 ## NOTES
-
-Normally it should work in a multiple server environment (I haven't tested yet)
 
 For multiple reasons, it works on RW users only
 

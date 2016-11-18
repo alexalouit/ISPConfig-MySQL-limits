@@ -37,7 +37,7 @@ if(!file_exists("/usr/local/ispconfig/server/lib/config.inc.php") OR !file_exist
 require_once "/usr/local/ispconfig/server/lib/config.inc.php";
 require_once "/usr/local/ispconfig/server/lib/mysql_clientdb.conf";
 
-if($conf["app_version"] != "3.0.5.4p8") {
+if($conf["app_version"] != "3.1.1p1") {
 	echo "This version is unsupported.\n";
 	exit;
 }
@@ -82,7 +82,7 @@ mysql_db_query($conf['db_database'], "ALTER TABLE `web_database_user` ADD `max_c
 echo "And finally, patch ISPConfig.\n";
 exec("cp ispconfig.patch /usr/local/ispconfig/ispconfig.patch");
 exec("cd /usr/local/ispconfig");
-exec("patch -p3 < ./ispconfig.patch");
+exec("patch -p4 < ./ispconfig.patch");
 exec("rm ./ispconfig.patch");
 
 echo "Done my job. Enjoy!\n";
