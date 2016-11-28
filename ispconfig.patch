@@ -1952,8 +1952,8 @@ diff -r -u -N /usr/local/ispconfig/interface/web/sites/templates/database_user_e
 +            <input type="hidden" name="id" value="{tmpl_var name='id'}">
 +
 +        <div class="clear"><div class="right">
-+            <button class="btn btn-default formbutton-success" type="button" value="{tmpl_var name='btn_save_txt'}" data-submit-form="pageForm" data-form-action="sites/ftp_user_edit.php">{tmpl_var name='btn_save_txt'}</button>
-+            <button class="btn btn-default formbutton-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" data-load-content="sites/ftp_user_list.php">{tmpl_var name='btn_cancel_txt'}</button>
++            <button class="btn btn-default formbutton-success" type="button" value="{tmpl_var name='btn_save_txt'}" data-submit-form="pageForm" data-form-action="sites/database_user_list.php">{tmpl_var name='btn_save_txt'}</button>
++            <button class="btn btn-default formbutton-default" type="button" value="{tmpl_var name='btn_cancel_txt'}" data-load-content="sites/database_user_list.php">{tmpl_var name='btn_cancel_txt'}</button>
 +        </div></div>
 diff -r -u -N /usr/local/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php /usr/local/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php
 --- /usr/local/ispconfig/server/plugins-available/mysql_clientdb_plugin.inc.php	2016-11-14 01:23:03.440108756 +0100
